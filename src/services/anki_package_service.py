@@ -1,5 +1,6 @@
 """AnkiPackageService for generating .apkg files using genanki."""
-import random
+import hashlib
+import html
 from typing import Optional
 
 import genanki
@@ -47,9 +48,11 @@ class AnkiPackageService:
         Returns:
             A deck ID integer.
         """
-        # Use a seeded random to generate consistent IDs for the same title
-        random.seed(title)
-        return random.randrange(1 << 30, 1 << 31)
+        # Use hash-based approach for consistent deck IDs
+        hash_bytes = hashlib.sha256(title.encode('utf-8')).digest()
+        # Use first 8 bytes and ensure it's in the valid range
+        hash_int = int.from_bytes(hash_bytes[:8], byteorder='big')
+        return (hash_int % (1 << 31 - 1 << 30)) + (1 << 30)
 
     def create_note(self, card: AnkiCard) -> genanki.Note:
         """Create a genanki Note from an AnkiCard entity.
@@ -63,11 +66,13 @@ class AnkiPackageService:
         front_content = card.front
         back_content = card.back
         
-        # Add image tags if images are specified
+        # Add image tags if images are specified (escape HTML to prevent XSS)
         if card.front_image:
-            front_content = f'<img src="{card.front_image}"><br>{front_content}'
+            safe_image = html.escape(card.front_image)
+            front_content = f'<img src="{safe_image}"><br>{front_content}'
         if card.back_image:
-            back_content = f'{back_content}<br><img src="{card.back_image}">'
+            safe_image = html.escape(card.back_image)
+            back_content = f'{back_content}<br><img src="{safe_image}">'
         
         return genanki.Note(
             model=self.BASIC_MODEL,

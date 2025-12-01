@@ -69,9 +69,13 @@ class ImageLoaderService:
         images = set()
         
         for card in deck.cards:
-            if card.front_image and self.image_exists(card.front_image):
-                images.add(str(self.get_image_path(card.front_image)))
-            if card.back_image and self.image_exists(card.back_image):
-                images.add(str(self.get_image_path(card.back_image)))
+            if card.front_image:
+                path = self.get_image_path(card.front_image)
+                if path.exists():
+                    images.add(str(path))
+            if card.back_image:
+                path = self.get_image_path(card.back_image)
+                if path.exists():
+                    images.add(str(path))
         
         return images
