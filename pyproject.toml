@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anki-generator"
+version = "1.0.0"
+description = "Generate Anki packages (.apkg) from JSON files"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "genanki>=0.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+anki-generator = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

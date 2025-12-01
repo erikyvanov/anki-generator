@@ -1,0 +1,28 @@
+{
+    "title": "Spanish Vocabulary",
+    "cards": [
+        {
+            "front": "Hello",
+            "back": "Hola"
+        },
+        {
+            "front": "Goodbye",
+            "back": "Adiós"
+        },
+        {
+            "front": "Thank you",
+            "back": "Gracias",
+            "front_image": "gracias_front.png",
+            "back_image": "gracias_back.png"
+        },
+        {
+            "front": "Please",
+            "back": "Por favor"
+        },
+        {
+            "front": "Yes",
+            "back": "Sí",
+            "back_image": "si_image.jpg"
+        }
+    ]
+}
