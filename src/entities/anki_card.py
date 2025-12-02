@@ -1,6 +1,5 @@
 """AnkiCard entity representing a single Anki flashcard."""
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
@@ -15,8 +14,8 @@ class AnkiCard:
     """
     front: str
     back: str
-    front_image: Optional[str] = None
-    back_image: Optional[str] = None
+    front_image: str | None = None
+    back_image: str | None = None
 
     def has_front_image(self) -> bool:
         """Check if the card has a front image."""

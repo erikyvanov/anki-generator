@@ -1,6 +1,5 @@
 """AnkiDeck entity representing an Anki deck with cards."""
 from dataclasses import dataclass, field
-from typing import List
 
 from .anki_card import AnkiCard
 
@@ -14,7 +13,7 @@ class AnkiDeck:
         cards: List of AnkiCard objects in the deck.
     """
     title: str
-    cards: List[AnkiCard] = field(default_factory=list)
+    cards: list[AnkiCard] = field(default_factory=list)
 
     def add_card(self, card: AnkiCard) -> None:
         """Add a card to the deck."""

@@ -1,7 +1,6 @@
 """JsonReaderService for reading and parsing JSON input files."""
 import json
 from pathlib import Path
-from typing import Dict, Any, List
 
 from src.entities import AnkiCard, AnkiDeck
 
@@ -45,7 +44,7 @@ class JsonReaderService:
         data = json.loads(json_string)
         return self._parse_deck_data(data)
 
-    def _parse_deck_data(self, data: Dict[str, Any]) -> AnkiDeck:
+    def _parse_deck_data(self, data: dict) -> AnkiDeck:
         """Parse dictionary data into an AnkiDeck entity.
         
         Args:
@@ -64,7 +63,7 @@ class JsonReaderService:
         
         return AnkiDeck(title=title, cards=cards)
 
-    def _parse_card_data(self, card_data: Dict[str, Any]) -> AnkiCard:
+    def _parse_card_data(self, card_data: dict) -> AnkiCard:
         """Parse dictionary data into an AnkiCard entity.
         
         Args:

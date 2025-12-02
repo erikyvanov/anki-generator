@@ -1,7 +1,6 @@
 """AnkiPackageService for generating .apkg files using genanki."""
 import hashlib
 import html
-from typing import Optional
 
 import genanki
 
@@ -31,7 +30,7 @@ class AnkiPackageService:
         ],
     )
 
-    def __init__(self, image_loader: Optional[ImageLoaderService] = None):
+    def __init__(self, image_loader: ImageLoaderService | None = None):
         """Initialize the AnkiPackageService.
         
         Args:

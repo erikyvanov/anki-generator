@@ -1,6 +1,5 @@
 """ImageLoaderService for loading images from the data directory."""
 from pathlib import Path
-from typing import List, Set
 
 from src.entities import AnkiDeck
 
@@ -38,7 +37,7 @@ class ImageLoaderService:
         """
         return self.get_image_path(image_name).exists()
 
-    def validate_deck_images(self, deck: AnkiDeck) -> List[str]:
+    def validate_deck_images(self, deck: AnkiDeck) -> list[str]:
         """Validate that all images referenced in the deck exist.
         
         Args:
@@ -57,7 +56,7 @@ class ImageLoaderService:
         
         return missing_images
 
-    def collect_deck_images(self, deck: AnkiDeck) -> Set[str]:
+    def collect_deck_images(self, deck: AnkiDeck) -> set[str]:
         """Collect all unique image paths from a deck.
         
         Args:
