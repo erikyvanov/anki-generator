@@ -1,3 +1,9 @@
+# Data directory for images
+data/
+
+# Output files
+*.apkg
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
