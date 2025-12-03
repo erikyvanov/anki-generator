@@ -6,6 +6,7 @@ import genanki
 
 from src.entities import AnkiDeck, AnkiCard
 from src.services.image_loader_service import ImageLoaderService
+from src.services.html_escaper_service import HTMLEscaperService
 
 
 class AnkiPackageService:
@@ -46,6 +47,7 @@ class AnkiPackageService:
             image_loader: Optional ImageLoaderService for loading images.
         """
         self.image_loader = image_loader or ImageLoaderService()
+        self.html_escaper = HTMLEscaperService()
 
     def generate_deck_id(self, title: str) -> int:
         """Generate a consistent deck ID based on the title.
@@ -71,8 +73,9 @@ class AnkiPackageService:
         Returns:
             genanki.Note object.
         """
-        front_content = card.front
-        back_content = card.back
+        # Escape special characters in content
+        front_content = self.html_escaper.escape_content(card.front)
+        back_content = self.html_escaper.escape_content(card.back)
         
         # Add image tags if images are specified (escape HTML to prevent XSS)
         if card.front_image:
