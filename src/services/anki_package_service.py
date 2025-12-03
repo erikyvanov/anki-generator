@@ -11,12 +11,12 @@ from src.services.image_loader_service import ImageLoaderService
 class AnkiPackageService:
     """Service responsible for generating Anki packages (.apkg) using genanki."""
 
-    # Basic model with optional image support
+    # Basic model with optional image support and LaTeX/MathJax support
     MODEL_ID = 1607392319
     
     BASIC_MODEL = genanki.Model(
         MODEL_ID,
-        "Basic Model with Images",
+        "Basic Model with Images and LaTeX",
         fields=[
             {"name": "Front"},
             {"name": "Back"},
@@ -28,6 +28,15 @@ class AnkiPackageService:
                 "afmt": '{{FrontSide}}<hr id="answer">{{Back}}',
             },
         ],
+        css="""
+.card {
+    font-family: arial;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    background-color: white;
+}
+        """,
     )
 
     def __init__(self, image_loader: ImageLoaderService | None = None):

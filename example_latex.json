@@ -1,0 +1,37 @@
+{
+    "title": "Mathematics with LaTeX",
+    "cards": [
+        {
+            "front": "What is the quadratic formula?",
+            "back": "The quadratic formula is \\[x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\]"
+        },
+        {
+            "front": "What is Euler's identity?",
+            "back": "\\[e^{i\\pi} + 1 = 0\\]"
+        },
+        {
+            "front": "What is the Pythagorean theorem?",
+            "back": "For a right triangle: \\[a^2 + b^2 = c^2\\]"
+        },
+        {
+            "front": "What is the derivative of \\(x^n\\)?",
+            "back": "\\[\\frac{d}{dx}x^n = nx^{n-1}\\]"
+        },
+        {
+            "front": "What is the integral of \\(e^x\\)?",
+            "back": "\\[\\int e^x dx = e^x + C\\]"
+        },
+        {
+            "front": "State the fundamental theorem of calculus",
+            "back": "\\[\\int_a^b f(x)dx = F(b) - F(a)\\] where \\(F'(x) = f(x)\\)"
+        },
+        {
+            "front": "What is Einstein's mass-energy equivalence?",
+            "back": "\\[E = mc^2\\]"
+        },
+        {
+            "front": "Express the sum of a geometric series",
+            "back": "\\[\\sum_{k=0}^{n} ar^k = a\\frac{1-r^{n+1}}{1-r}\\] for \\(r \\neq 1\\)"
+        }
+    ]
+}
