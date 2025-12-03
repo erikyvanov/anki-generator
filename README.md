@@ -47,6 +47,73 @@ The input JSON file should have the following structure:
   - `front_image` (optional): Filename of an image to display on the front
   - `back_image` (optional): Filename of an image to display on the back
 
+## HTML Support
+
+This generator only supports **HTML** for formatting card content. Markdown is not supported. You can use standard HTML tags to format your cards.
+
+### Supported HTML Tags
+
+Common HTML tags you can use include:
+
+- `<b>`, `<strong>`: **Bold text**
+- `<i>`, `<em>`: *Italic text*
+- `<u>`: Underlined text
+- `<br>`: Line break
+- `<ul>`, `<ol>`, `<li>`: Lists
+- `<p>`: Paragraphs
+- `<span>`: Inline styling
+- `<div>`: Block containers
+- `<table>`, `<tr>`, `<td>`: Tables
+
+### HTML Examples
+
+#### Basic Formatting
+
+```json
+{
+    "front": "What is <b>photosynthesis</b>?",
+    "back": "The process by which plants convert <i>sunlight</i> into <b>energy</b>."
+}
+```
+
+#### Lists
+
+```json
+{
+    "front": "Name the primary colors",
+    "back": "<ul><li>Red</li><li>Blue</li><li>Yellow</li></ul>"
+}
+```
+
+#### Multiple Lines
+
+```json
+{
+    "front": "What are the states of matter?",
+    "back": "Solid<br>Liquid<br>Gas<br>Plasma"
+}
+```
+
+#### Tables
+
+```json
+{
+    "front": "Spanish numbers 1-3",
+    "back": "<table><tr><td>1</td><td>uno</td></tr><tr><td>2</td><td>dos</td></tr><tr><td>3</td><td>tres</td></tr></table>"
+}
+```
+
+#### Combined Formatting
+
+```json
+{
+    "front": "Define <b>mitosis</b>",
+    "back": "<p><b>Mitosis</b> is a type of cell division.</p><p>Stages:</p><ul><li>Prophase</li><li>Metaphase</li><li>Anaphase</li><li>Telophase</li></ul>"
+}
+```
+
+**Note:** Special characters `<` and `>` in plain text (not HTML tags) are automatically escaped to prevent rendering issues.
+
 ## LaTeX Support
 
 The generator supports LaTeX equations using Anki's built-in MathJax rendering. You can include mathematical equations in your cards using the following syntax:
